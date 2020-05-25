@@ -1,0 +1,17 @@
+Error: Error parsing command line: unrecognised option '--noprealloc'
+NB: --noprealloc and --noprealloc depricated
+Reference: https://docs.mongodb.com/manual/reference/configuration-options/
+Removed Configuration File Setting:
+  storage.mmapv1.journal.commitIntervalMs	 
+  storage.mmapv1.journal.debugFlags	mongod --journalOptions
+  storage.mmapv1.nsSize	mongod --nssize
+  storage.mmapv1.preallocDataFiles	mongod --noprealloc
+  storage.mmapv1.quota.enforced	mongod --quota
+  storage.mmapv1.quota.maxFilesPerDB	mongod --quotaFiles
+  storage.mmapv1.smallFiles	mongod --smallfiles
+  storage.repairPath	mongod --repairpath
+  replication.secondaryIndexPrefetch	mongod --replIndexPrefetch
+
+
+25/05/2020:
+  - removed --noprealloc and --noprealloc flags

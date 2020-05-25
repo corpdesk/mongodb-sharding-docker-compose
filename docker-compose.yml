@@ -4,72 +4,72 @@ services:
   # Config servers for metadata
   mongo-configserver-01:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27017 --configsvr --noprealloc --smallfiles --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27017 --configsvr  --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
         - ./mongo-configserver.init.js:/mongo-configserver.init.js
   mongo-configserver-02:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27017 --configsvr --noprealloc --smallfiles --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27017 --configsvr  --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
   mongo-configserver-03:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27017 --configsvr --noprealloc --smallfiles --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27017 --configsvr  --replSet mongo-configserver --dbpath /data/db --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
     
   # First shard 
   mongo-shard-01a:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27018 --noprealloc --smallfiles --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27018  --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
         - ./mongo-shard-01.init.js:/mongo-shard-01.init.js
   mongo-shard-01b:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27018 --noprealloc --smallfiles --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27018  --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
   mongo-shard-01c:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27018 --noprealloc --smallfiles --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27018  --replSet mongo-shard-01 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
 
   # Second shard
   mongo-shard-02a:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27019 --noprealloc --smallfiles --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27019  --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
         - ./mongo-shard-02.init.js:/mongo-shard-02.init.js
   mongo-shard-02b:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27019 --noprealloc --smallfiles --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27019  --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
   mongo-shard-02c:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27019 --noprealloc --smallfiles --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27019  --replSet mongo-shard-02 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
 
   # Third shard
   mongo-shard-03a:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27020 --noprealloc --smallfiles --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27020  --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
         - ./mongo-shard-03.init.js:/mongo-shard-03.init.js
   mongo-shard-03b:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27020 --noprealloc --smallfiles --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27020  --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
   mongo-shard-03c:
     image: mongo:4.2.6-bionic
-    command: mongod --auth --port 27020 --noprealloc --smallfiles --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
+    command: mongod --auth --port 27020  --replSet mongo-shard-03 --dbpath /data/db --nojournal --oplogSize 16 --keyFile /mongodb.key
     volumes:
         - ./mongodb.key:/mongodb.key
 
@@ -97,4 +97,6 @@ services:
       - mongo-shard-03a
       - mongo-shard-03b
       - mongo-shard-03c
+
+      
 
