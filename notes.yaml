@@ -12,6 +12,27 @@ Removed Configuration File Setting:
   storage.repairPath	mongod --repairpath
   replication.secondaryIndexPrefetch	mongod --replIndexPrefetch
 
+# #########################
+
+Error: error opening file: /mongodb.key: bad file
+Solution: 
+  Try ~/mongo:/etc/mongo
+  Before:
+    ## Generate global auth key between cluster nodes
+    openssl rand -base64 756 > ~/mongo/mongodb.key
+    chmod 600 ~/mongo/mongodb.key
+    ## volumes
+    volumes:
+          - ./mongodb.key:/mongodb.key
+  After:
+    ## Generate global auth key between cluster nodes
+    openssl rand -base64 756 > mongodb.key
+    chmod 600 mongodb.key
+    ## volumes
+    volumes:
+          - ~/mongo:/etc/mongo
+
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
+  - reset the dir for mongodb.key to ~/mongo:/etc/mongo
