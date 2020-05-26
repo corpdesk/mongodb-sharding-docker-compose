@@ -45,6 +45,7 @@ error opening file: /etc/mongo/mongodb.key: bad file
   - add start.sh, stop.sh
   - Attache some logs: docker-compose logs -t -f --tail 10
   - delay until the shards are already running
+  - add --bind_ip 0.0.0.0 to server start ups
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
