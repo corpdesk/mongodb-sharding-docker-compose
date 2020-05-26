@@ -39,6 +39,7 @@ error opening file: /etc/mongo/mongodb.key: bad file
   - chown 999:999 ~/mongo/mongodb.key
   - replace use of '~' so as to run the up.sh with sudo
   - add start.sh, stop.sh
+  - Attache some logs: docker-compose logs -t -f --tail 10
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags

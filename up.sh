@@ -8,6 +8,8 @@ openssl rand -base64 756 > /home/emp-03/mongo/mongodb.key
 chmod 400 /home/emp-03/mongo/mongodb.key
 chown 999:999 /home/emp-03/mongo/mongodb.key
 
+## Attach some logs
+docker-compose logs -t -f --tail 10
 ## Start the whole stack
 docker-compose up -d 
 
