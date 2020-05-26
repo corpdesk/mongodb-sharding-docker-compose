@@ -14,19 +14,28 @@ docker-compose logs -t -f --tail 10
 docker-compose up -d 
 
 ## delay until the shards are already running
-sleep 40
+sleep 15
 
 ## Config servers setup
 docker exec -it mongodbdocker_mongo-configserver-01_1 sh -c "mongo --port 27017 < /mongo-configserver.init.js"
 
+## delay until the shards are already running
+sleep 15
+
 ## Shard servers setup
 docker exec -it mongodbdocker_mongo-shard-01a_1 sh -c "mongo --port 27018 < /mongo-shard-01.init.js" 
+## delay until the shards are already running
+sleep 15
 docker exec -it mongodbdocker_mongo-shard-02a_1 sh -c "mongo --port 27019 < /mongo-shard-02.init.js"
+## delay until the shards are already running
+sleep 15
 docker exec -it mongodbdocker_mongo-shard-03a_1 sh -c "mongo --port 27020 < /mongo-shard-03.init.js"
 
 ## Apply sharding configuration
 sleep 15
 docker exec -it mongodbdocker_mongo-router-01_1 sh -c "mongo --port 27017 < /mongo-sharding.init.js"
 
+## delay until the shards are already running
+sleep 15
 ## Enable admin account
 docker exec -it mongodbdocker_mongo-router-01_1 sh -c "mongo --port 27017 < /mongo-auth.init.js"
