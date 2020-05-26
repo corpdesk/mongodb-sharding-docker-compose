@@ -38,6 +38,7 @@ error opening file: /etc/mongo/mongodb.key: bad file
 26/05/2020:
   - chown 999:999 ~/mongo/mongodb.key
   - replace use of '~' so as to run the up.sh with sudo
+  - add start.sh, stop.sh
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
