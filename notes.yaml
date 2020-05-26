@@ -32,7 +32,12 @@ Solution:
     volumes:
           - ~/mongo:/etc/mongo
 
+# ################
+error opening file: /etc/mongo/mongodb.key: bad file
 
+26/05/2020:
+  - chown 999:999 ~/mongo/mongodb.key
+  
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
   - reset the dir for mongodb.key to ~/mongo:/etc/mongo
