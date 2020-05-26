@@ -51,6 +51,8 @@ Try: --network cd-net-01
   - delay until the shards are already running
   - add --bind_ip 0.0.0.0 to server start ups
   - add --network cd-net-01
+  - remove --network cd-net-01
+  - set cd-net-01 on docker-compose file
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
