@@ -13,6 +13,9 @@ docker-compose logs -t -f --tail 10
 ## Start the whole stack
 docker-compose up -d 
 
+## delay until the shards are already running
+sleep 40
+
 ## Config servers setup
 docker exec -it mongodbdocker_mongo-configserver-01_1 sh -c "mongo --port 27017 < /mongo-configserver.init.js"
 
