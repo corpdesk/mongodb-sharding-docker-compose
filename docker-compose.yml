@@ -101,7 +101,7 @@ services:
 networks:
   default:
     external:
-      name: my-pre-existing-network
+      name: cd-net-01
 
       
 
