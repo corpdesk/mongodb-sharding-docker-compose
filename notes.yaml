@@ -38,6 +38,10 @@ error opening file: /etc/mongo/mongodb.key: bad file
 # ################
 "errmsg" : "replSetInitiate quorum check failed because not all proposed set members responded affirmatively: mongo-configserver-02:27017 failed with Error connecting to mongo-configserver-02:27017 (172.19.0.4:27017) :: caused by :: Connection refused, mongo-configserver-03:27017 failed with Error connecting to mongo-configserver-03:27017 (172.19.0.7:27017) :: caused by :: Connection refused"
 
+# ################
+No TransportLayer configured during NetworkInterface startup
+Try: --network cd-net-01
+
 
 26/05/2020:
   - chown 999:999 ~/mongo/mongodb.key
@@ -46,6 +50,7 @@ error opening file: /etc/mongo/mongodb.key: bad file
   - Attache some logs: docker-compose logs -t -f --tail 10
   - delay until the shards are already running
   - add --bind_ip 0.0.0.0 to server start ups
+  - add --network cd-net-01
 
 25/05/2020:
   - removed --noprealloc and --noprealloc flags
