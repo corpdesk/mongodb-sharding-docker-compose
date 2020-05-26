@@ -98,10 +98,10 @@ services:
       - mongo-shard-03b
       - mongo-shard-03c
 
-  networks:
-    default:
-      external:
-        name: my-pre-existing-network
+networks:
+  default:
+    external:
+      name: my-pre-existing-network
 
       
 
